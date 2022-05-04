@@ -1,6 +1,6 @@
 # Natural-Language-Processing-Projects
 
-Here,
+These are the projects that I have done while doing my NLP course.
 
 ## Project-1
 Name of the file : Token word count.py
