@@ -1,8 +1,5 @@
-#Assignment 2 (CPSC 5310)
-#Problem-03
-#Purpose of the program: To generate random sentences using Bi-gram and Tri-gram 
+#Purpose of the program: To generate random sentences using Bi-gram and Tri-gram
 #Author: Sara Binte Zinnat
-#ID:001217884
 #Date: 04.02.2020
 
 import nltk
@@ -33,12 +30,12 @@ def removeStopWords (sentences):
 	stop_words = set(stopwords.words('english'))
 
 	numberOfStopWords = 0
-	filteredSentences = [] 
+	filteredSentences = []
 
 	for sent in sentences:
 		filteredSentence = []
-		for token in sent: 
-			if token not in stop_words: 
+		for token in sent:
+			if token not in stop_words:
 				filteredSentence.append(token)
 			else:
 				numberOfStopWords += 1
@@ -58,11 +55,11 @@ def tokenize (genres):
 		# removing special character
 		sentences = removeSpecialCharacter(sentences)
 		sentences = removeStopWords(sentences)
-		
+
 		for sent in sentences:
 			sent.insert(0,'<s>')
 			sent.append('</s>')
-		
+
 		corpus.extend(sentences)
 	return corpus
 
@@ -102,7 +99,7 @@ def biGramTable(corpus):
 				bgTable[sent[i]][sent[i+1]] = 1
 				bgLength += 1
 
-	return bgTable, bgLength 
+	return bgTable, bgLength
 
 #purpose: to make a tri-gram table
 #input: corpus
@@ -130,7 +127,7 @@ def triGramTable(corpus):
 				tgTable[sent[i]][sent[i+1]][sent[i+2]] = 1
 				tgLength += 1
 
-	return tgTable, tgLength 
+	return tgTable, tgLength
 
 #purpose: to generate and print a random sentence using bi-gram
 #input: uni-gram table and its length; bi-gram table and its length; first random token of a sentence; maximum length of a sentence
@@ -158,7 +155,7 @@ def randomSenBigram(ugTable, ugLength, bgTable, bgLength, firstToken, maxLength)
 			leng += 1
 		else:
 			break
-		
+
 	return sen, probability
 
 #purpose: to generate and print a random sentence using tri-gram
@@ -189,7 +186,7 @@ def randomSenTrigram(bgTable, bgLength, tgTable, tgLength, firstToken, maxLength
 			leng += 1
 		else:
 			break
-		
+
 	return sen, probability
 
 
@@ -220,7 +217,7 @@ def main():
 		sentence, probability = randomSenTrigram(bgTable, bgLength, tgTable, tgLength, firstToken, 10)
 		print(sentence)
 		print('Probability of the sentence: ' + str(probability)+'\n')
-		
+
 		stat = int(input("Enter '1': to generate next random sentence or Enter '0' to exit: "))
 		print('------------------------------------------')
 main()

@@ -1,4 +1,4 @@
-#Purpose of the program: To count word tokens and word types from each genre/category and the vocabulary size for the whole corpus 
+#Purpose of the program: To count word tokens and word types from each genre/category and the vocabulary size for the whole corpus
 #Author: Sara Binte Zinnat
 #Date: 24.01.2020
 
