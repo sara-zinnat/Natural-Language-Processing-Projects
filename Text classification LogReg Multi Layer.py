@@ -1,8 +1,5 @@
-#Assignment 4 (CPSC 5310)
-#Problem-03
-#Purpose of the program: to classify text using Logistic regression and Multi-layer neural network on Brown corpus 
+#Purpose of the program: to classify text using Logistic regression and Multi-layer neural network on Brown corpus
 #Author: Sara Binte Zinnat
-#ID:001217884
 #Date: 29.03.2020
 
 import re
@@ -42,12 +39,12 @@ def removeStopWords (sentences):
 	stop_words = set(stopwords.words('english'))
 
 	numberOfStopWords = 0
-	filteredSentences = [] 
+	filteredSentences = []
 
 	for sent in sentences:
 		filteredSentence = []
-		for token in sent: 
-			if token not in stop_words: 
+		for token in sent:
+			if token not in stop_words:
 				filteredSentence.append(token)
 			else:
 				numberOfStopWords += 1
@@ -94,7 +91,7 @@ def extractFeatures(genres):
 	word2vec = CountVectorizer()
 	featuresMatrix = word2vec.fit_transform(text) # converts words to vector
 	print ('Word2Vec Done!!!')
-	
+
 	le = preprocessing.LabelEncoder()
 	labels = le.fit_transform(category)
 
@@ -103,8 +100,8 @@ def extractFeatures(genres):
 
 #main function
 def main():
-	genres=brown.categories() 
-	
+	genres=brown.categories()
+
 	featuresMatrix, labels = extractFeatures(genres)
 
 	print ('Feature Matrix Size: ' + str(featuresMatrix.shape))

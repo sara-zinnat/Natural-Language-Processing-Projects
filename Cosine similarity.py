@@ -1,8 +1,5 @@
-#Assignment 3 (CPSC 5310)
-#Problem-05
-#Purpose of the program: To measure cosine similarity within and between the clusters 
+#Purpose of the program: To measure cosine similarity within and between the clusters
 #Author: Sara Binte Zinnat
-#ID:001217884
 #Date: 18.03.2020
 import numpy as np
 import nltk
@@ -12,13 +9,13 @@ from random import randint
 
 #purpose: to fetch similarity between two sentences from matrix (using tf-idf and word2vec)
 #input: s1, s2 (two sentences)
-#return: cosine similarity value between s1 and s2 from matrix_tf_idf and matrix_word2vec 
+#return: cosine similarity value between s1 and s2 from matrix_tf_idf and matrix_word2vec
 def similarity_sentence (s1, s2, matrix_tf_idf, matrix_word2vec):
 	return matrix_tf_idf[s2][s1], matrix_word2vec[s2][s1]
 
 #purpose: to calculate similarity between two documents (using tf-idf and word2vec)
 #input: d1, d2 (two documents)
-#return: 
+#return:
 def similarity_document (d1, d2, withInCluster = False):
 	d1 = [[w.lower() for w in s] for s in d1]
 	d2 = [[w.lower() for w in s] for s in d2]
@@ -34,7 +31,7 @@ def similarity_document (d1, d2, withInCluster = False):
 
 	dictionary = corpora.Dictionary(corp)
 	corpus = [dictionary.doc2bow(gen_doc) for gen_doc in d1]
-	
+
 	# TF_IDF representation
 	tf_idf = models.TfidfModel(corpus)
 	# MatrixSimilarity uses the cosine similarity
@@ -68,7 +65,7 @@ def similarity_document (d1, d2, withInCluster = False):
 	print(sim_query_doc_w2v)
 	print ('The mean value of this similarity matrix (Word2Vec): ', np.mean(sim_query_doc_w2v))
 	print ('*'*60)
-	print ('For an example:') 
+	print ('For an example:')
 	print ('The cosine similarity between two random sentences, sen_no',sen1+1,' (from d1) and sen_no',sen2+1,' (from d2):')
 	print ('TF-IDF: ', sims[query_doc_tf_idf][sen2][sen1], ' and Word2Vec: ', sim_query_doc_w2v[sen2][sen1])
 	print ('*'*60)
