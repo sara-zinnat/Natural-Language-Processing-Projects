@@ -24,7 +24,7 @@ In this project the goal is to generate random sentences using Bi-gram and Tri-g
 
 1. removing special character and lower case conversion
 2. removing stopwords
-3. tokenizing the entire brown corpus incorporating <s> and </s> for starting and ending of each sentences
+3. tokenizing the entire brown corpus incorporating tokens for starting and ending of each sentences
 4. make an uni-gram table
 5. make a bi-gram table
 6. make a tri-gram table
@@ -61,7 +61,7 @@ This project contains the following segments:
 File Name: Cosine similarity.py
 
 
-To measure cosine similarity within and between the clusters. This project contains the following segments:
+This program aims to measure cosine similarity within and between the clusters. This project contains the following segments:
 
 1. fetch similarity between two sentences from matrix (using tf-idf and word2vec)
 2. to calculate similarity between two documents (using tf-idf and word2vec)
